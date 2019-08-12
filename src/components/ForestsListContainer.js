@@ -19,7 +19,7 @@ class ForestsListContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    ads: state.forestsList
+    forests: state.forestsList
   }
 }
 

@@ -1,5 +1,5 @@
 import * as request from 'superagent'
-const baseUrl = 'http://localhost:4000'
+import { baseUrl } from '../constants'
 
 export const ALL_FORESTS = 'ALL_FORESTS'
 
@@ -12,7 +12,7 @@ function allForests(payload) {
 
 export const getForests = () => dispatch => {
   request
-    .get(`${baseUrl}/ads`)
+    .get(`${baseUrl}/forests`)
     .then(response => {
       dispatch(allForests(response.body))
     })

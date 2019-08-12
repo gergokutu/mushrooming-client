@@ -10,9 +10,8 @@ class ForestsListContainer extends Component {
   }
 
   render() {
-    console.log('ForestsListContainer this.props:', this.props.forests)
     return (
-      <ForestsList forestslist={this.props.forests}/>
+      <ForestsList forestsList={this.props.forests}/>
     )
   }
 }

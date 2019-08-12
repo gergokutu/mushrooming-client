@@ -12,7 +12,7 @@ function allForests(payload) {
 
 export const getForests = () => dispatch => {
   request
-    .get(`${baseUrl}/forests`)
+    .get(`${baseUrl}/forest`)
     .then(response => {
       dispatch(allForests(response.body))
     })

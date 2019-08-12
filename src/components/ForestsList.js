@@ -1,16 +1,13 @@
 import React from 'react'
 
 export default function ForestsList(props) {
-  // const { forests } = props.forestslist
-  console.log('list test:', props)
+  const forests = props.forestsList
+  console.log('list test:', props.forestsList)
 
   return (
     <ul>
-      <li>Forest1</li>
-      <li>Forest2</li>
-      <li>Forest3</li>
-      {/* {!forests && 'Loading...'}
-      {forests && forests.map((forest, index) => <li key={index}>{forest.name}</li>)} */}
+      {!forests && 'Loading...'}
+      {forests && forests.map((forest, index) => <li key={index}>{forest.name}</li>)}
     </ul>
   )
 }

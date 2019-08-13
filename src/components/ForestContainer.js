@@ -12,9 +12,9 @@ class ForestContainer extends Component {
 
   render() {
     console.log('ForestContainer this.props:', this.props)
-    return (
+    return <div>
       <Forest forest={this.props.forest}/>
-    )
+    </div> 
   }
 }
 

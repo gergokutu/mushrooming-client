@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './Forest.css'
 class Forest extends React.Component {
 
   render() {
@@ -24,11 +24,11 @@ class Forest extends React.Component {
         .includes(location)
         ? 'bad'
         : null
-      const space = <div key={location}>
+      const space = <span key={location} className='space'>
         {location}
         {good}
         {bad}
-      </div>
+      </span>
       spaces.push(space)
       location = location + 1
     }
@@ -36,6 +36,7 @@ class Forest extends React.Component {
     return <span>
       <h3>{forest.name}</h3>
       {spaces}
+      <button className='dieButton'>Roll a die</button>
     </span>
   }
 }

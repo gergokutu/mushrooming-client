@@ -1,0 +1,9 @@
+.space{
+  margin: 10px;
+  border: 2px black solid;
+  align-content: center;
+  width: 8rem;
+  height: 8rem;
+  display: inline-block
+
+}

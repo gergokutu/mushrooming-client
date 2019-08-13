@@ -12,7 +12,7 @@ function allForests(payload) {
 
 export const getForests = () => dispatch => {
   request
-    .get(`${baseUrl}/forest`)
+    .get(`${baseUrl}/stream`)
     .then(response => {
       dispatch(allForests(response.body))
     })
@@ -24,7 +24,7 @@ export const FOREST = 'FOREST'
 function forest(payload) {
   return {
     type: FOREST,
-    payload
+    payload: payload
   }
 }
 
@@ -33,6 +33,7 @@ export const getForest = (id) => dispatch => {
   request
     .get(`${baseUrl}/forest/${id}`)
     .then(response => {
+      console.log('forests action response.body:', response.body)
       dispatch(forest(response.body))
     })
     .catch(console.error)

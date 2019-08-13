@@ -42,7 +42,7 @@ box-sizing: border-box;
 // correct={true} » refers to StyledInput
 const Login = () => (
   <StyledLogin>
-    <h2>Welcome Back</h2>
+    <h2>Let's Mushrooming!</h2>
     <StyledInput correct={true} type="text" placeholder="email" />
     <StyledInput correct={false} type="password" placeholder="password" />
     <button>Login</button>

@@ -11,6 +11,7 @@ class ForestsListContainer extends Component {
 
   render() {
     return <div>
+      {console.log('FLCont render this.props:', this.props)}
       <ForestsList forestsList={this.props.forests}/>
     </div>
   }

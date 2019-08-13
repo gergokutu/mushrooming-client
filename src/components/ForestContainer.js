@@ -11,7 +11,6 @@ class ForestContainer extends Component {
   }
 
   render() {
-    console.log('ForestContainer this.props:', this.props)
     return <div>
       <Forest forest={this.props.forest}/>
     </div> 
@@ -19,9 +18,8 @@ class ForestContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('ForestContainer state:', state)
   return {
-    forest: state.forest
+    forest: state.forestsList
   }
 }
 

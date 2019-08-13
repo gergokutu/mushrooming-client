@@ -33,6 +33,7 @@ export const getForest = (id) => dispatch => {
   request
     .get(`${baseUrl}/forest/${id}`)
     .then(response => {
+      console.log('forests action response.body:', response.body)
       dispatch(forest(response.body))
     })
     .catch(console.error)

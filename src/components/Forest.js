@@ -16,24 +16,25 @@ class Forest extends React.Component {
         .filter(mushroomer => mushroomer.location === location)
       const good = forest
         .good
-        .find(space=>space===location)
+        .includes(location)
         ? 'good'
         : null
-      // const bad = forest
-      //   .bad
-      //   .find(location)
-      //   ? 'bad'
-      //   : null
-      const space = <div>
-        {mushroomers}
+      const bad = forest
+        .bad
+        .includes(location)
+        ? 'bad'
+        : null
+      const space = <div key={location}>
+        {location}
         {good}
-        {/* {bad} */}
+        {bad}
       </div>
       spaces.push(space)
       location = location + 1
     }
 
     return <span>
+      <h3>{forest.name}</h3>
       {spaces}
     </span>
   }

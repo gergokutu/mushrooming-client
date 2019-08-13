@@ -7,7 +7,7 @@ import ForestContainer from './components/ForestContainer'
 function App() {
   return (
     <div>
-      <Route exact path='/' component={ForestsListContainer} />
+      <Route exact path='/forest' component={ForestsListContainer} />
       <Route path='/forest/:forestId' component={ForestContainer} />
     </div>
   );

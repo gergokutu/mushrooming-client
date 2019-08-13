@@ -6,7 +6,7 @@ const StyledLogin = styled.div`
   align-items: center;
   flex-flow: column;
   width: 200px;
-  height: 200px;
+  height: 290px;
   margin: 50px auto 50px;
   border: 2px solid #000;
   border-radius: 20px;
@@ -40,13 +40,15 @@ box-sizing: border-box;
 `;
 
 // correct={true} » refers to StyledInput
-const Login = () => (
+const NewUser = () => (
   <StyledLogin>
-    <h2>Welcome Back</h2>
+    <h2>Never Played?</h2>
     <StyledInput correct={true} type="text" placeholder="email" />
     <StyledInput correct={false} type="password" placeholder="password" />
-    <button>Login</button>
+    <StyledInput type="text" placeholder="nickname" />
+    <StyledInput type="text" placeholder="avatarUrl" />
+    <button>Create User</button>
   </StyledLogin>
 )
 
-export default Login
+export default NewUser

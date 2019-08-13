@@ -10,9 +10,9 @@ class ForestsListContainer extends Component {
   }
 
   render() {
-    return (
+    return <div>
       <ForestsList forestsList={this.props.forests}/>
-    )
+    </div>
   }
 }
 

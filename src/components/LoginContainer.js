@@ -9,6 +9,8 @@ class LoginContainer extends Component {
   render() {
 
     return <div>
+      <h1 className='App'>Welcome to Mushroom Land!</h1>
+      <p className='App'>Please, login or create a new user</p>
       <Login />
       <NewUser />
     </div>  

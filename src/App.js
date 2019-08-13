@@ -1,16 +1,14 @@
 import React from 'react';
 import './App.css';
 import ForestsListContainer from './components/ForestsListContainer'
+import { Route } from 'react-router-dom'
+import ForestContainer from './components/ForestContainer'
 
 function App() {
   return (
     <div>
-      <header>
-        Choose your Forest ;)
-      </header>
-      <main>
-        <ForestsListContainer />
-      </main>
+      <Route exact path='/forest' component={ForestsListContainer} />
+      <Route path='/forest/:forestId' component={ForestContainer} />
     </div>
   );
 }

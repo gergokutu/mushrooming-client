@@ -17,4 +17,23 @@ export const getForests = () => dispatch => {
       dispatch(allForests(response.body))
     })
     .catch(console.error)
-}  
+}
+
+export const FOREST = 'FOREST'
+
+function forest(payload) {
+  return {
+    type: FOREST,
+    payload
+  }
+}
+
+export const getForest = (id) => dispatch => {
+  console.log('f:', id)
+  request
+    .get(`${baseUrl}/forest/${id}`)
+    .then(response => {
+      dispatch(forest(response.body))
+    })
+    .catch(console.error)
+} 

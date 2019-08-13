@@ -12,22 +12,22 @@ class Forest extends React.Component {
     while (forest.name && location < 36) {
       console.log('While forest:', forest)
       const mushroomers = forest
-        .id
+        .mushroomers
         .filter(mushroomer => mushroomer.location === location)
       const good = forest
         .good
-        .contains(location)
+        .find(space=>space===location)
         ? 'good'
         : null
-      const bad = forest
-        .good
-        .contains(location)
-        ? 'bad'
-        : null
+      // const bad = forest
+      //   .bad
+      //   .find(location)
+      //   ? 'bad'
+      //   : null
       const space = <div>
         {mushroomers}
         {good}
-        {bad}
+        {/* {bad} */}
       </div>
       spaces.push(space)
       location = location + 1

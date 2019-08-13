@@ -24,7 +24,7 @@ export const FOREST = 'FOREST'
 function forest(payload) {
   return {
     type: FOREST,
-    payload
+    payload: payload
   }
 }
 

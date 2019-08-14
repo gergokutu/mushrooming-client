@@ -10,15 +10,7 @@ function allForests(payload) {
   }
 }
 
-export const getForests = () => dispatch => {
-  request
-    .get(`${baseUrl}/stream`)
-    .then(response => {
-      dispatch(allForests(response.body))
-    })
-    .catch(console.error)
-}
-
+// I should remove this part » because of stream...
 export const FOREST = 'FOREST'
 
 function forest(payload) {

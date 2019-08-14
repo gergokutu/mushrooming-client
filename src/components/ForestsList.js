@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 export default function ForestsList(props) {
   const forests = props.forestsList
-  console.log('list test:', props.forestsList)
 
   return (
     <div>

@@ -1,10 +1,10 @@
-import { ALL_FORESTS } from '../actions/forests'
+// import { ALL_FORESTS } from '../actions/forests'
 import { FOREST } from '../actions/forests'
 
 const reducer = (state = [], action = {}) => {
   switch (action.type) {
-    case ALL_FORESTS:
-      return action.payload
+    // case ALL_FORESTS:
+    //   return action.payload
     case FOREST:
       return action.payload
     default:

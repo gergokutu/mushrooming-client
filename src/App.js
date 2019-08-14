@@ -4,16 +4,20 @@ import ForestsListContainer from './components/ForestsListContainer'
 import { Route } from 'react-router-dom'
 import ForestContainer from './components/ForestContainer'
 import LoginContainer from './components/LoginContainer'
-import { baseUrl } from '../constants'
+
+import { baseUrl } from './constants'
+import { allForests } from './actions/forests'
+import { connect } from 'react-redux'
 
 
 class App extends React.Component {
-  source = EventSource(`${baseUrl}/stream`)
+  source = new EventSource(`${baseUrl}/stream`)
 
   componentDidMount () {
     this.source.onmessage = function (event) {
       const { data } = event
       const forests = JSON.parse(data)
+      console.log('App this.props:', this.props)
       this.props.allForests(forests)
     }
   }
@@ -28,4 +32,15 @@ class App extends React.Component {
   }
 }
 
-export default App;
+function mapStateToProps (state) {
+  return {
+    forests: state.forests,
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = {
+  allForests
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -3,7 +3,7 @@ import { baseUrl } from '../constants'
 
 export const ALL_FORESTS = 'ALL_FORESTS'
 
-function allForests(payload) {
+export function allForests(payload) {
   return {
     type: ALL_FORESTS,
     payload

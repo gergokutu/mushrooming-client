@@ -17,7 +17,6 @@ class App extends React.Component {
     this.source.onmessage = (event) => {
       const { data } = event
       const forests = JSON.parse(data)
-      console.log('App this.props:', this.props)
       this.props.allForests(forests)
     }
   }

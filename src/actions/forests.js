@@ -1,6 +1,3 @@
-import * as request from 'superagent'
-import { baseUrl } from '../constants'
-
 export const ALL_FORESTS = 'ALL_FORESTS'
 
 export function allForests(payload) {
@@ -10,23 +7,11 @@ export function allForests(payload) {
   }
 }
 
-// I should remove this part » because of stream...
 export const FOREST = 'FOREST'
 
-function forest(payload) {
+export function forestId(payload) {
   return {
     type: FOREST,
     payload: payload
   }
 }
-
-export const getForest = (id) => dispatch => {
-  console.log('f:', id)
-  request
-    .get(`${baseUrl}/forest/${id}`)
-    .then(response => {
-      console.log('forests action response.body:', response.body)
-      dispatch(forest(response.body))
-    })
-    .catch(console.error)
-} 

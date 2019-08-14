@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ForestsList from './ForestsList'
-// import { getForests } from '../actions/forests'
+// import { allForests, getForests } from '../actions/forests'
+import {baseUrl} from '../constants'
 
 class ForestsListContainer extends Component {
-
-  // componentDidMount() {
-  //   this.props.getForests()
-  // }
 
   render() {
     return <div>
@@ -24,7 +21,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  // getForests
+  // allForests
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ForestsListContainer)

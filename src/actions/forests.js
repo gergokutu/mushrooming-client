@@ -11,7 +11,7 @@ export function allForests(payload) {
 }
 
 // I should remove this part » because of stream...
-export const FOREST = 'FOREST'
+ export const FOREST = 'FOREST'
 
 function forest(payload) {
   return {
@@ -23,7 +23,7 @@ function forest(payload) {
 export const getForest = (id) => dispatch => {
   console.log('f:', id)
   request
-    .get(`${baseUrl}/forest/${id}`)
+    .get(`${baseUrl}/roll/${id}`)
     .then(response => {
       console.log('forests action response.body:', response.body)
       dispatch(forest(response.body))

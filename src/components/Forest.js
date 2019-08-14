@@ -1,16 +1,20 @@
 import React from 'react'
 import './Forest.css'
+import { connect } from 'react-redux'
+
 class Forest extends React.Component {
 
   render() {
-    const { forest } = this.props
-    console.log('forest:', forest.name)
+    const { forestId } = this.props.match.params
+
+    const forest = this.props.forest.find(forest => {
+      return forest.id===parseInt(forestId)
+    })
     let location = 0
     const spaces = []
 
     
     while (forest.name && location < 36) {
-      console.log('While forest:', forest)
       const mushroomers = forest
         .mushroomers
         .filter(mushroomer => mushroomer.location === location)
@@ -43,5 +47,11 @@ class Forest extends React.Component {
     </span>
   }
 }
+function mapStateToProps(state) {
+  return {
+    forest: state.forestsList
+  }
+}
 
-export default Forest
+
+export default connect(mapStateToProps)(Forest)

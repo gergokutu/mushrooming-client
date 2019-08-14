@@ -7,6 +7,7 @@ import LoginContainer from './components/LoginContainer'
 import { baseUrl } from './constants'
 import {allForests} from './actions/forests'
 import { connect } from 'react-redux'
+import Forest from './components/Forest'
 
 
 class App extends React.Component {
@@ -14,7 +15,7 @@ class App extends React.Component {
   
 
   componentDidMount () {
-    this.source.onmessage =(event) =>{
+    this.source.onmessage = (event) => {
       const { data } = event
       const forests = JSON.parse(data)
       console.log('forests',forests)
@@ -29,7 +30,7 @@ class App extends React.Component {
       <div>
         {console.log('app render props',this.props)}
         <Route exact path='/forest' component={ForestsListContainer} />
-        <Route path='/forest/:forestId' component={ForestContainer} />
+        <Route path='/forest/:forestId' component={Forest} />
         <Route path='/login' component={LoginContainer} />
       </div>
     )

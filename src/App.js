@@ -21,6 +21,7 @@ class App extends React.Component {
       this.props.allForests(forests)
     }
   }
+  
   render () {
     return (
       <div>

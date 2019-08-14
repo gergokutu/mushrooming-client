@@ -14,7 +14,7 @@ class App extends React.Component {
   source = new EventSource(`${baseUrl}/stream`)
 
   componentDidMount () {
-    this.source.onmessage = function (event) {
+    this.source.onmessage = (event) => {
       const { data } = event
       const forests = JSON.parse(data)
       console.log('App this.props:', this.props)

@@ -1,8 +1,15 @@
 import React from 'react'
 import './Forest.css'
 import { connect } from 'react-redux'
+import * as request from 'superagent'
+import { baseUrl } from '../constants'
 
 class Forest extends React.Component {
+    
+  onClick = async(event)=>{
+    event.preventDefault()
+    await request.put(`${baseUrl}/roll/1`)
+  }
 
   render() {
     const { forestId } = this.props.match.params
@@ -42,7 +49,7 @@ class Forest extends React.Component {
       <h3>{forest.name}</h3>
       {spaces}
       <div>
-      <button className='dieButton'>Roll a die</button>
+      <button className='dieButton' onClick={this.onClick}>Roll a die</button>
       </div>
     </span>
   }

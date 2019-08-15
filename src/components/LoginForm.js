@@ -40,7 +40,7 @@ box-sizing: border-box;
 `;
 
 // correct={true} » refers to StyledInput
-const Login = () => (
+const LoginForm = () => (
   <StyledLogin>
     <h2>Let's Mushrooming!</h2>
     <StyledInput correct={true} type="text" placeholder="email" />
@@ -49,4 +49,4 @@ const Login = () => (
   </StyledLogin>
 )
 
-export default Login
+export default LoginForm

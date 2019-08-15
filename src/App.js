@@ -3,7 +3,7 @@ import './App.css';
 import ForestsListContainer from './components/ForestsListContainer'
 import { Route } from 'react-router-dom'
 import ForestContainer from './components/ForestContainer'
-import LoginContainer from './components/LoginContainer'
+import LoginFormContainer from './components/LoginFormContainer'
 
 import { baseUrl } from './constants'
 import { allForests } from './actions/forests'
@@ -26,7 +26,7 @@ class App extends React.Component {
       <div>
         <Route exact path='/forest' component={ForestsListContainer} />
         <Route path='/forest/:forestId' component={ForestContainer} />
-        <Route path='/login' component={LoginContainer} />
+        <Route path='/login' component={LoginFormContainer} />
       </div>
     )
   }

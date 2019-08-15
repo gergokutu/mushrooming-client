@@ -85,6 +85,7 @@ class Forest extends React.Component {
       {this.showStartButton()}
       {this.showWinner()}
       <div className='board'>{spaces}</div>
+      <div className='emptyForest'></div>
       {this.showMushroomers()}
       {this.showRollButton()}
     </div>

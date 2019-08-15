@@ -1,18 +1,88 @@
-.space{
-  margin: 10px;
-  border: 2px black solid;
-  align-content: center;
-  width: 8rem;
-  height: 8rem;
-  display: inline-block
-
+.forest {
+  margin: 0px;
+  background-image: url('https://postrabbit.pl/media/cache/12/08/1208be4aad833ed9fe38d7d3b006d6d8.jpg');
+  background-repeat: repeat;
+  background-size: 1800px;
 }
 
-.displayMushroomers{
-  max-width: 20rem;
-  /* align-content: center; */
+.space{
+  margin: 10px;
+  font-weight: bold;
+  border: 3px rgb(25, 139, 21) solid;
+  border-radius: 20%;
+  text-align: center;
+  width: 8rem;
+  height: 8rem;
   display: inline-block;
-  /* float: left; */
+  box-shadow: 15px 15px 20px 0px rgb(129, 127, 127);
+}
+
+.displayMushroomers {
+  max-width: 20rem;
+  display: inline-block;
   margin: 20px;
-  padding: 20px
+  padding: 20px;
+  border: 3px rgb(151, 252, 255) dotted;
+  border-radius: 20%;
+}
+
+.mushroomerInfo {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: rgb(255, 255, 255);
+}
+
+.button {
+  margin: 10px;
+  height: 35px;
+  width: auto;
+  border: 2px lightgray solid;
+  border-radius: 20%;
+  box-shadow: 5px 5px 15px 0px rgb(129, 127, 127);
+  font-size: 1.2rem;
+}
+
+.title {
+  margin: 0px;
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: fantasy;
+  text-align: center;
+}
+
+.link {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.forestList {
+  text-align: center;
+}
+
+.forestMake {
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.forestInput {
+  margin: 10px;
+  font-size: 1.2rem;
+}
+
+.forestLabel {
+  font-size: 1.5rem;
+}
+
+.image {
+  margin: 20px;
+}
+
+.imageLine {
+  display: flex;
+  flex-direction: row;
+  margin: auto 100px;
+}
+
+.loggedIn {
+  text-align: center;
 }

@@ -5,18 +5,18 @@ class Forest extends React.Component {
 
   showStartButton =() =>{
     if(this.props.forest.status==='joining'){
-      return <div><button className='startGame' onClick={this.props.onClickStart}>Start Game</button></div>
+      return <div><button className='startGame, button' onClick={this.props.onClickStart}>Start Game</button></div>
   }}
 
   showJoinButton =() =>{
     if(this.props.forest.status==='joining'){
-      return <div><button className='joinGame' onClick={this.props.onClickJoin}>Join</button></div>
+      return <div><button className='joinGame, button' onClick={this.props.onClickJoin}>Join</button></div>
     }
   }
 
   showRollButton=() =>{
     if(this.props.forest.status==='started'){
-      return <div><button className='dieButton' onClick={this.props.onClickRoll}>Roll a die</button></div>
+      return <div><button className='dieButton, button' onClick={this.props.onClickRoll}>Roll a die</button></div>
     }
   }
   calculatePoints = (mushroomer) =>{
@@ -38,10 +38,10 @@ class Forest extends React.Component {
     if(mushroomers){
       return mushroomers.map(mushroomer => {
       return <div key={mushroomer.id} className='displayMushroomers'>
-        <p>mushroomer ID: {mushroomer.id}</p>
-        <p>number of good mushrooms: {mushroomer.good}</p>
-        <p>number of bad mushrooms: {mushroomer.bad}</p>
-        <p>number of points: {this.calculatePoints(mushroomer)}</p>
+        <p className='mushroomerInfo'>mushroomer ID: {mushroomer.id}</p>
+        <p className='mushroomerInfo'>number of good mushrooms: {mushroomer.good}</p>
+        <p className='mushroomerInfo'>number of bad mushrooms: {mushroomer.bad}</p>
+        <p className='mushroomerInfo'>number of points: {this.calculatePoints(mushroomer)}</p>
       </div>
     })}
 
@@ -78,16 +78,16 @@ class Forest extends React.Component {
       location = location + 1
     }
 
-    return <span>
-      <h3>{forest.name}</h3>
-      <div><Link to={`/forest`}><button className='ButtonBack' onClick={this.props.onClickBack}>Go Back</button></Link></div>
+    return <div className='forest'>
+      <h3 className='title'>{forest.name}</h3>
+      <div><Link to={`/forest`}><button className='ButtonBack, button' onClick={this.props.onClickBack}>Go Back</button></Link></div>
       {this.showJoinButton()}
       {this.showStartButton()}
       {this.showWinner()}
       <div className='board'>{spaces}</div>
       {this.showMushroomers()}
       {this.showRollButton()}
-    </span>
+    </div>
   }
 }
 

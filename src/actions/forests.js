@@ -7,11 +7,11 @@ export function allForests(payload) {
   }
 }
 
-export const FOREST = 'FOREST'
+// export const FOREST = 'FOREST'
 
-export function forestId(payload) {
-  return {
-    type: FOREST,
-    payload: payload
-  }
-}
+// export function forestId(payload) {
+//   return {
+//     type: FOREST,
+//     payload: payload
+//   }
+// }

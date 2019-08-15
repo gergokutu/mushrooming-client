@@ -1,39 +1,35 @@
 import * as request from 'superagent'
 import { baseUrl } from '../constants'
 
-export const LOGIN_USER = 'LOGIN_USER'
+export const JWT = 'JWT'
 
-function existingUser(payload) {
+function jwt (payload) {
   return {
-    type: LOGIN_USER,
+    type: JWT,
     payload
   }
 }
 
-export const loginUser = (id) => dispatch => {
+export const loginUser = (email, password) => dispatch => {
+  console.log('loginUser:', email, password)
   request
-    .get(`${baseUrl}/login/${id}`)
+    .post(`${baseUrl}/login`)
+    .send({ email, password })
     .then(response => {
-      dispatch(existingUser(response.body))
-    })
-    .catch(console.error)
+      console.log('HellloQ')
+      const action = jwt(response.body)
+      dispatch(action)
+    }
+  )
 }
 
-
-export const CREATE_USER = 'CREATE_USER'
-
-function newUser(payload) {
-  return {
-    type: CREATE_USER,
-    payload
-  }
-}
-
-export const createUser = () => dispatch => {
+export const createUser = (user) => dispatch => {
+  console.log('createUser:', user)
   request
-    .get(`${baseUrl}/user`)
+    .post(`${baseUrl}/user`)
+    .send(user)
     .then(response => {
-      dispatch(newUser(response.body))
+      console.log("response test:", response)
     })
     .catch(console.error)
 }

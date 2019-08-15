@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import forestsList from './forests'
-import user from './users'
+import login from './login'
 
 export default combineReducers({
   forestsList: forestsList,
-  user: user
+  login: login
 })

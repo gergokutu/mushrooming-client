@@ -40,13 +40,39 @@ box-sizing: border-box;
 `;
 
 // correct={true} » refers to StyledInput
-const Login = () => (
-  <StyledLogin>
-    <h2>Let's Mushrooming!</h2>
-    <StyledInput correct={true} type="text" placeholder="email" />
-    <StyledInput correct={false} type="password" placeholder="password" />
-    <button>Login</button>
-  </StyledLogin>
-)
+function LoginForm (props) {
+  const { onSubmitLogin, onChangeLogin, values } = props
+  const { email, password } = values
 
-export default Login
+  return (
+    <form onSubmit={onSubmitLogin}>
+    <StyledLogin >
+      <h2>Let's Mushrooming!</h2>
+
+      
+        <StyledInput 
+          correct={true} 
+          type="text"
+          name='email'
+          value={email}
+          onChange={onChangeLogin} 
+          placeholder="email" 
+        />
+        <StyledInput 
+          correct={false} 
+          type="password"
+          name='password'
+          value={password}
+          onChange={onChangeLogin} 
+          placeholder="password" 
+        />
+        
+          <button type='submit'>Login</button>
+        
+      
+    </StyledLogin>
+    </form>
+  )
+}
+
+export default LoginForm

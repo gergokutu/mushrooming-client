@@ -6,9 +6,19 @@ import * as request from 'superagent'
 
 class ForestContainer extends Component {
 
-  onClick = async(event)=>{
+  onClickRoll = async(event)=>{
     event.preventDefault()
-    await request.put(`${baseUrl}/roll/2`)
+    await request.put(`${baseUrl}/roll/1`)
+  }
+  onClickStart = async(event) => {
+    event.preventDefault()
+    const {forestId} = this.props.match.params
+    await request.put(`${baseUrl}/start/${forestId}`)
+  }
+
+  onClickBack = async(event) =>{
+    console.log('hello from onClickBack')
+
   }
 
   render() {
@@ -17,7 +27,9 @@ class ForestContainer extends Component {
     const rightForest = forests.find(forest => forest.id === parseInt(id))
     const forest = rightForest
       ? <Forest forest={rightForest} 
-          onClick={this.onClick}
+          onClickRoll={this.onClickRoll}
+          onClickStart={this.onClickStart}
+          onClickBack={this.onClickBack}
         />
       : "loading..."
     return <div>

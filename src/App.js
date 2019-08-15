@@ -3,8 +3,6 @@ import './App.css';
 import ForestsListContainer from './components/ForestsListContainer'
 import { Route } from 'react-router-dom'
 
-import LoginContainer from './components/LoginContainer'
-
 import ForestContainer from './components/ForestContainer'
 import LoginFormContainer from './components/LoginFormContainer'
 

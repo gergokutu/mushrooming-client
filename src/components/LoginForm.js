@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
+import { Link } from 'react-router-dom'
 
 const StyledLogin = styled.div`
   display: flex;
@@ -40,13 +41,40 @@ box-sizing: border-box;
 `;
 
 // correct={true} » refers to StyledInput
-const LoginForm = () => (
-  <StyledLogin>
-    <h2>Let's Mushrooming!</h2>
-    <StyledInput correct={true} type="text" placeholder="email" />
-    <StyledInput correct={false} type="password" placeholder="password" />
-    <button>Login</button>
-  </StyledLogin>
-)
+function LoginForm (props) {
+  const { onSubmitLogin, onChangeLogin, values } = props
+  console.log('LoginForm values:', values)
+  const { email, password } = values
+
+  return (
+    <form onSubmit={onSubmitLogin}>
+    <StyledLogin >
+      <h2>Let's Mushrooming!</h2>
+
+      
+        <StyledInput 
+          correct={true} 
+          type="text"
+          name='email'
+          value={email}
+          onChange={onChangeLogin} 
+          placeholder="email" 
+        />
+        <StyledInput 
+          correct={false} 
+          type="password"
+          name='password'
+          value={password}
+          onChange={onChangeLogin} 
+          placeholder="password" 
+        />
+        <Link to='/forest'>
+          <button type='submit'>Login</button>
+        </Link>
+      
+    </StyledLogin>
+    </form>
+  )
+}
 
 export default LoginForm

@@ -1,40 +1,41 @@
 import * as request from 'superagent'
 import { baseUrl } from '../constants'
 
-export const LOGIN_USER = 'LOGIN_USER'
+export const JWT = 'JWT'
 
-function existingUser(payload) {
+function jwt (payload) {
   return {
-    type: LOGIN_USER,
+    type: JWT,
     payload
   }
 }
 
-export const loginUser = (id) => dispatch => {
+export const loginUser = (email, password) => dispatch => {
   request
-    .get(`${baseUrl}/login/${id}`)
+    .post(`${baseUrl}/login`)
+    .send({ email, password })
     .then(response => {
-      dispatch(existingUser(response.body))
+      const action = jwt(response.body.jwt)
+
+      dispatch(action)
     })
-    .catch(console.error)
 }
 
+// export const CREATE_USER = 'CREATE_USER'
 
-export const CREATE_USER = 'CREATE_USER'
+// function newUser(payload) {
+//   return {
+//     type: CREATE_USER,
+//     payload
+//   }
+// }
 
-function newUser(payload) {
-  return {
-    type: CREATE_USER,
-    payload
-  }
-}
-
-export const createUser = () => dispatch => {
-  request
-    .get(`${baseUrl}/user`)
-    .then(response => {
-      dispatch(newUser(response.body))
-    })
-    .catch(console.error)
-}
+// export const createUser = () => dispatch => {
+//   request
+//     .post(`${baseUrl}/user`)
+//     .then(response => {
+//       dispatch(newUser(response.body))
+//     })
+//     .catch(console.error)
+// }
 

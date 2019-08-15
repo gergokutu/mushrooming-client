@@ -43,7 +43,6 @@ box-sizing: border-box;
 // correct={true} » refers to StyledInput
 function LoginForm (props) {
   const { onSubmitLogin, onChangeLogin, values } = props
-  console.log('LoginForm values:', values)
   const { email, password } = values
 
   return (
@@ -68,9 +67,9 @@ function LoginForm (props) {
           onChange={onChangeLogin} 
           placeholder="password" 
         />
-        <Link to='/forest'>
+        
           <button type='submit'>Login</button>
-        </Link>
+        
       
     </StyledLogin>
     </form>

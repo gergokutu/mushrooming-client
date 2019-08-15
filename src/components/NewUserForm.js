@@ -42,8 +42,7 @@ box-sizing: border-box;
 // correct={true} » refers to StyledInput
 function NewUserForm (props) {
   const { onSubmitNew, onChangeNew, values } = props
-  console.log('NewUserForm values:', values)
-  const { newemail, newpassword, nickname, avatarUrl } = values
+  const { email, password, nickname, avatarUrl } = values
 
   return (
     <form onSubmit={onSubmitNew}>
@@ -52,15 +51,15 @@ function NewUserForm (props) {
 
       <StyledInput 
       type="text" 
-      name='newemail'
-      value={newemail}
+      name='email'
+      value={email}
       onChange={onChangeNew} 
       placeholder="email" 
       />
       <StyledInput
        type="password"
-       name='newpassword'
-       value={newpassword}
+       name='password'
+       value={password}
        onChange={onChangeNew} 
        placeholder="password" 
        />
@@ -78,9 +77,9 @@ function NewUserForm (props) {
       onChange={onChangeNew} 
       placeholder="avatarUrl" 
       />
-      <Link to='/forest'>
+      
       <button type='submit'>Create User</button>
-      </Link>
+      
     </StyledLogin>
     </form>
   )

@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import LoginForm from './LoginForm'
 import NewUserForm from './NewUserForm'
-import { loginUser } from '../actions/users'
-// import { createUser } from '../actions/users'
+import { loginUser, createUser } from '../actions/users'
+import { Link } from 'react-router-dom'
+
 
 class LoginFormContainer extends Component {
   state = { 
@@ -12,83 +13,85 @@ class LoginFormContainer extends Component {
       password: ''
     }, 
     new: {
-      newemail: '',
-      newpassword: '',
+      email: '',
+      password: '',
       nickname: '',
       avatarUrl: ''
     } 
   }
 
-  // componentDidMount() {
-  //   const id = this.props.match.params.userId
-  //   this.props.loginUser(id)
-  //   this.props.createUser()
-  // }
-
   onSubmitLogin = (event) => {
-    console.log('onSubmit:')
+    console.log('onSubmit!:')
     event.preventDefault()
-    this.props.loginUser( this.state.existing)
+    this.props.loginUser( this.state.existing.email, this.state.existing.password)
   }
 
   onChangeLogin = (event) => {
-    console.log('Login » event.target.value:', event.target.value)
-    console.log('Login » event.target.name:', event.target.name)
+    const { name, value } = event.target
+
+    console.log("targetTest", name, value)
 
     const existing = this.state.existing
-    existing[event.target.name] = event.target.value
+    existing[name] = value
 
     this.setState({
       existing
     })
-    console.log('state test',this.state)
   }
 
   onSubmitNew = (event) => {
-    console.log('OnsubmitNew:')
     event.preventDefault()
-    this.props.loginUser( this.state.new )
+    this.props.createUser( this.state.new )
   }
 
   onChangeNew = (event) => {
-    console.log('New » event.target.value:', event.target.value)
     const next = this.state.new
     next[event.target.name] = event.target.value
 
     this.setState({
       new: next
     })
-    console.log('state test',this.state)
   }
 
-  render() {
+  render () {
+    console.log("render test")
+    const { login } = this.props
+
+    console.log('login test:', login)
+
+    const content = !login.jwt
+      ? <div>
+        <p className='App'>Please, login or create a new user</p>
+        <LoginForm 
+          onSubmitLogin={this.onSubmitLogin}
+          onChangeLogin={this.onChangeLogin}
+          values={this.state.existing}
+        />
+        <NewUserForm 
+          onSubmitNew={this.onSubmitNew}
+          onChangeNew={this.onChangeNew}
+          values={this.state.new}
+        />
+      </div>
+      : <Link to='/forest'>Forests</Link>
+
     return <div>
       <h1 className='App'>Welcome to Mushroom Land!</h1>
-      <p className='App'>Please, login or create a new user</p>
-      <LoginForm 
-        onSubmitLogin={this.onSubmitLogin}
-        onChangeLogin={this.onChangeLogin}
-        values={this.state.existing}
-      />
-      <NewUserForm 
-        onSubmitNew={this.onSubmitNew}
-        onChangeNew={this.onChangeNew}
-        values={this.state.new}
-      />
+      {content}
     </div>  
   }
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     user: state.user
-//   }
-// }
+function mapStateToProps(state) {
+  return {
+    login: state.login
+  }
+}
 
-// const mapDispatchToProps = {
-//   loginUser,
-//   createUser
-// }
+const mapDispatchToProps = {
+  loginUser,
+  createUser
+}
 
 // export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer)
-export default connect(null, {loginUser})(LoginFormContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer)

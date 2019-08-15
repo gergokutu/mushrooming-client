@@ -11,31 +11,26 @@ function jwt (payload) {
 }
 
 export const loginUser = (email, password) => dispatch => {
+  console.log('loginUser:', email, password)
   request
     .post(`${baseUrl}/login`)
     .send({ email, password })
     .then(response => {
-      const action = jwt(response.body.jwt)
-
+      console.log('HellloQ')
+      const action = jwt(response.body)
       dispatch(action)
-    })
+    }
+  )
 }
 
-// export const CREATE_USER = 'CREATE_USER'
-
-// function newUser(payload) {
-//   return {
-//     type: CREATE_USER,
-//     payload
-//   }
-// }
-
-// export const createUser = () => dispatch => {
-//   request
-//     .post(`${baseUrl}/user`)
-//     .then(response => {
-//       dispatch(newUser(response.body))
-//     })
-//     .catch(console.error)
-// }
+export const createUser = (user) => dispatch => {
+  console.log('createUser:', user)
+  request
+    .post(`${baseUrl}/user`)
+    .send(user)
+    .then(response => {
+      console.log("response test:", response)
+    })
+    .catch(console.error)
+}
 

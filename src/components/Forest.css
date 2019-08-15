@@ -7,3 +7,12 @@
   display: inline-block
 
 }
+
+.displayMushroomers{
+  max-width: 20rem;
+  /* align-content: center; */
+  display: inline-block;
+  /* float: left; */
+  margin: 20px;
+  padding: 20px
+}

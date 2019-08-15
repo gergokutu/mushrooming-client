@@ -22,6 +22,11 @@ export default function ForestsList(props) {
           )
         }
       </ul>
+      <form className='forestForm' onSubmit={props.onSubmit}>
+        <h4>Make new forest!</h4>
+        <label>Forest name:<input type='text' value={props.value} onChange={props.onChange}></input></label>
+        <button type='submit'>Create</button>
+      </form>
     </div>
   )
 }

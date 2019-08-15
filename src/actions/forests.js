@@ -15,3 +15,12 @@ export function forestId(payload) {
     payload: payload
   }
 }
+
+export const NEW_FOREST = 'NEW_FOREST'
+
+export function newForest(payload){
+  return{
+    type: NEW_FOREST,
+    payload
+  }
+}

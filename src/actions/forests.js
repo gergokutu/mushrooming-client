@@ -7,15 +7,6 @@ export function allForests(payload) {
   }
 }
 
-export const FOREST = 'FOREST'
-
-export function forestId(payload) {
-  return {
-    type: FOREST,
-    payload: payload
-  }
-}
-
 export const NEW_FOREST = 'NEW_FOREST'
 
 export function newForest(payload){

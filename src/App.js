@@ -2,11 +2,16 @@ import React from 'react';
 import './App.css';
 import ForestsListContainer from './components/ForestsListContainer'
 import { Route } from 'react-router-dom'
+
 import LoginContainer from './components/LoginContainer'
+
+import ForestContainer from './components/ForestContainer'
+import LoginFormContainer from './components/LoginFormContainer'
+
 import { baseUrl } from './constants'
 import {allForests} from './actions/forests'
 import { connect } from 'react-redux'
-import ForestContainer from './components/ForestContainer'
+
 
 
 class App extends React.Component {
@@ -27,10 +32,9 @@ class App extends React.Component {
     return (
       
       <div>
-        {console.log('app render props',this.props)}
+        <Route exact path='/' component={LoginFormContainer} />
         <Route exact path='/forest' component={ForestsListContainer} />
         <Route path='/forest/:forestId' component={ForestContainer} />
-        <Route path='/login' component={LoginContainer} />
       </div>
     )
   }

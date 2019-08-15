@@ -81,8 +81,8 @@ class Forest extends React.Component {
     return <span>
       <h3>{forest.name}</h3>
       <div><Link to={`/forest`}><button className='ButtonBack' onClick={this.props.onClickBack}>Go Back</button></Link></div>
-      {this.showStartButton()}
       {this.showJoinButton()}
+      {this.showStartButton()}
       {this.showWinner()}
       <div className='board'>{spaces}</div>
       {this.showMushroomers()}

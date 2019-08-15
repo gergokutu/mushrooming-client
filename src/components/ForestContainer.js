@@ -7,11 +7,22 @@ import { async } from 'q';
 
 
 class ForestContainer extends Component {
+  getForest = () => {
+    const id = this.props.match.params.forestId
+    const { forests } = this.props
+    return forests.find(forest => forest.id === parseInt(id))
+  }
 
   onClickRoll = async(event)=>{
     event.preventDefault()
-    await request.put(`${baseUrl}/roll/1`)
+    const userId = this.props.login.userId
+    const forest = this.getForest()
+    const mushroomer = forest.mushroomers.find(mushroomer => mushroomer.userId === userId)
+    
+    await request
+      .put(`${baseUrl}/roll/${mushroomer.id}`)
   }
+
   onClickStart = async(event) => {
     event.preventDefault()
     const {forestId} = this.props.match.params
@@ -27,16 +38,8 @@ class ForestContainer extends Component {
 
   }
 
-  onClickBack = async(event) =>{
-    console.log('hello from onClickBack')
-
-  }
-
   render() {
-    console.log('userId',this.props.login)
-    const id = this.props.match.params.forestId
-    const forests = this.props.forest
-    const rightForest = forests.find(forest => forest.id === parseInt(id))
+    const rightForest = this.getForest()
     const forest = rightForest
       ? <Forest forest={rightForest} 
           onClickRoll={this.onClickRoll}
@@ -53,7 +56,7 @@ class ForestContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    forest: state.forestsList,
+    forests: state.forestsList,
     login: state.login
   }
 }

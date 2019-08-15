@@ -8,6 +8,12 @@ class Forest extends React.Component {
       return <div><button className='startGame' onClick={this.props.onClickStart}>Start Game</button></div>
   }}
 
+  showJoinButton =() =>{
+    if(this.props.forest.status==='joining'){
+      return <div><button className='joinGame' onClick={this.props.onClickJoin}>Join</button></div>
+    }
+  }
+
   showRollButton=() =>{
     if(this.props.forest.status==='started'){
       return <div><button className='dieButton' onClick={this.props.onClickRoll}>Roll a die</button></div>
@@ -76,6 +82,7 @@ class Forest extends React.Component {
       <h3>{forest.name}</h3>
       <div><Link to={`/forest`}><button className='ButtonBack' onClick={this.props.onClickBack}>Go Back</button></Link></div>
       {this.showStartButton()}
+      {this.showJoinButton()}
       {this.showWinner()}
       <div className='board'>{spaces}</div>
       {this.showMushroomers()}

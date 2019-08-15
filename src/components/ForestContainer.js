@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import Forest from './Forest'
 import { baseUrl } from '../constants'
 import * as request from 'superagent'
+import { async } from 'q';
+
 
 class ForestContainer extends Component {
 
@@ -16,12 +18,22 @@ class ForestContainer extends Component {
     await request.put(`${baseUrl}/start/${forestId}`)
   }
 
+  onClickJoin = async(event) =>{
+    event.preventDefault()
+    const {forestId} = this.props.match.params
+    const userId=this.props.login.userId
+    await request.post(`${baseUrl}/join/${forestId}`)
+    .send({id: userId})
+
+  }
+
   onClickBack = async(event) =>{
     console.log('hello from onClickBack')
 
   }
 
   render() {
+    console.log('userId',this.props.login)
     const id = this.props.match.params.forestId
     const forests = this.props.forest
     const rightForest = forests.find(forest => forest.id === parseInt(id))
@@ -30,6 +42,7 @@ class ForestContainer extends Component {
           onClickRoll={this.onClickRoll}
           onClickStart={this.onClickStart}
           onClickBack={this.onClickBack}
+          onClickJoin={this.onClickJoin}
         />
       : "loading..."
     return <div>
@@ -40,7 +53,8 @@ class ForestContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    forest: state.forestsList
+    forest: state.forestsList,
+    login: state.login
   }
 }
 

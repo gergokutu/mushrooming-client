@@ -37,13 +37,14 @@ class Forest extends React.Component {
     const mushroomers = this.props.forest.mushroomers
     if(mushroomers){
       return mushroomers.map(mushroomer => {
-      return <div key={mushroomer.id} className='displayMushroomers'>
-        <p className='mushroomerInfo'>mushroomer ID: {mushroomer.id}</p>
-        <p className='mushroomerInfo'>number of good mushrooms: {mushroomer.good}</p>
-        <p className='mushroomerInfo'>number of bad mushrooms: {mushroomer.bad}</p>
-        <p className='mushroomerInfo'>number of points: {this.calculatePoints(mushroomer)}</p>
-      </div>
-    })}
+        return <div key={mushroomer.id} className='displayMushroomers'>
+          <p className='mushroomerInfo'>nickname: {mushroomer.nickname}</p>
+          <p className='mushroomerInfo'>number of good mushrooms: {mushroomer.good}</p>
+          <p className='mushroomerInfo'>number of bad mushrooms: {mushroomer.bad}</p>
+          <p className='mushroomerInfo'>number of points: {this.calculatePoints(mushroomer)}</p>
+        </div>
+      })
+    }
 
   }
 
@@ -53,26 +54,28 @@ class Forest extends React.Component {
     let location = 0
     const spaces = []
 
-    
     while (forest.name && location < 36) {
       const mushroomers = forest
         .mushroomers
         .filter(mushroomer => mushroomer.location === location)
+
       const good = forest
         .good
         .includes(location)
         ? 'good'
         : null
+
       const bad = forest
         .bad
         .includes(location)
         ? 'bad'
         : null
+
       const space = <span key={location} className='space'>
-        {location}
-        {mushroomers.map(mushroomer => mushroomer.userId)}
-        {good}
-        {bad}
+        <div>{location}</div>
+        <div>{mushroomers.map(mushroomer => mushroomer.nickname)}</div>
+        <div>{good}</div>
+        <div>{bad}</div>
       </span>
       spaces.push(space)
       location = location + 1

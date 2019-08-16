@@ -29,7 +29,7 @@ class Forest extends React.Component {
       const winner = mushroomers.reduce((winner, mushroomer) => {
         return this.calculatePoints(winner) > this.calculatePoints(mushroomer) ? winner : mushroomer;
       }, 0)
-      return <h3>The winner is <b>{winner.id}</b> with number of points: <b>{this.calculatePoints(winner)}</b></h3>
+      return <h3>The winner is <b>{winner.nickname}</b> with number of points: <b>{this.calculatePoints(winner)}</b></h3>
     }
   }
 
@@ -73,7 +73,7 @@ class Forest extends React.Component {
 
       const space = <span key={location} className='space'>
         <div>{location}</div>
-        <div>{mushroomers.map(mushroomer => mushroomer.nickname)}</div>
+        <div>{mushroomers.map(mushroomer => <div>{mushroomer.nickname}</div>)}</div>
         <div>{good}</div>
         <div>{bad}</div>
       </span>
@@ -89,8 +89,8 @@ class Forest extends React.Component {
       {this.showWinner()}
       <div className='board'>{spaces}</div>
       <div className='emptyForest'></div>
-      {this.showMushroomers()}
       {this.showRollButton()}
+      {this.showMushroomers()}
     </div>
   }
 }

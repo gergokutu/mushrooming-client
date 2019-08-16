@@ -20,8 +20,6 @@ class App extends React.Component {
     this.source.onmessage = (event) => {
       const { data } = event
       const forests = JSON.parse(data)
-      console.log('forests',forests)
-      console.log('App this.props:', this.props)
       this.props.allForests(forests)
     }
   }
@@ -39,7 +37,6 @@ class App extends React.Component {
 }
 
 function mapStateToProps (state) {
-  console.log('app state.forests', state)
   return {
     forests: state.forestsList,
     user: state.user

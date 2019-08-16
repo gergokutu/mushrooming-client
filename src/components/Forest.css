@@ -105,6 +105,24 @@
 .nickname {
   display: inline-block;
   margin: 1.5rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: rgb(236, 232, 230);
+}
+
+.location {
+  font-size: 1.8rem;
+}
+
+.winnerText {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.trophy {
+  height: 3rem;
+  width: auto;
+}
+
+.winnerName {
+  color: rgb(212, 97, 20);
 }

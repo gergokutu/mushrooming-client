@@ -60,7 +60,7 @@ class LoginFormContainer extends Component {
     console.log('login test:', login)
 
     const content = !login.jwt
-      ? <div>
+      ? <div className='loginFormContainer'>
         <p className='App'>Please, login or create a new user</p>
         <LoginForm 
           onSubmitLogin={this.onSubmitLogin}
@@ -73,11 +73,20 @@ class LoginFormContainer extends Component {
           values={this.state.new}
         />
       </div>
-      : <Link to='/forest'>Forests</Link>
+      : <div className='loggedIn'>
+          <h3>Almost there :)</h3>
+          <img src='https://i.dlpng.com/static/png/356841_preview.png' />
+          <p>Click on the link below!!!</p>
+          <Link to='/forest' className='link'>Forests</Link>
+        </div>
 
     return <div>
-      <h1 className='App'>Welcome to Mushroom Land!</h1>
+      <h1 className='App'>Enter to Mushroom Land!</h1>
       {content}
+      <div className='imageLine'>
+        <img className='image' src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' />
+        <img className='image' src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' />
+      </div>
     </div>  
   }
 }

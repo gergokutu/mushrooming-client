@@ -17,11 +17,11 @@ class LoginFormContainer extends Component {
       password: '',
       nickname: '',
       avatarUrl: ''
-    } 
+    },
+    new_created: false 
   }
 
   onSubmitLogin = (event) => {
-    console.log('onSubmit!:')
     event.preventDefault()
     this.props.loginUser( this.state.existing.email, this.state.existing.password)
   }
@@ -29,7 +29,6 @@ class LoginFormContainer extends Component {
   onChangeLogin = (event) => {
     const { name, value } = event.target
 
-    console.log("targetTest", name, value)
 
     const existing = this.state.existing
     existing[name] = value
@@ -42,6 +41,16 @@ class LoginFormContainer extends Component {
   onSubmitNew = (event) => {
     event.preventDefault()
     this.props.createUser( this.state.new )
+    this.setState({
+      new: {
+        email: '',
+        password: '',
+        nickname: '',
+        avatarUrl: ''
+      },
+      new_created: true
+    })
+
   }
 
   onChangeNew = (event) => {
@@ -54,19 +63,18 @@ class LoginFormContainer extends Component {
   }
 
   render () {
-    console.log("render test")
     const { login } = this.props
-
-    console.log('login test:', login)
+    console.log('new created?', this.state.new_created)
 
     const content = !login.jwt
       ? <div className='loginFormContainer'>
-        <p className='App'>Please, login or create a new user</p>
+        <p className='App'>Please, log in or create a new user</p>
         <LoginForm 
           onSubmitLogin={this.onSubmitLogin}
           onChangeLogin={this.onChangeLogin}
           values={this.state.existing}
         />
+        {this.state.new_created&&<p className='App'>Now you can log in!</p>}
         <NewUserForm 
           onSubmitNew={this.onSubmitNew}
           onChangeNew={this.onChangeNew}
@@ -102,5 +110,5 @@ const mapDispatchToProps = {
   createUser
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer)
+
 export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer)

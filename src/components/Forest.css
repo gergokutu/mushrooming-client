@@ -13,10 +13,11 @@
   border: 3px rgb(18, 68, 16) solid;
   border-radius: 20%;
   text-align: center;
-  width: 7.5rem;
+  min-width: 7.5rem;
   height: 7.5rem;
   box-shadow: 15px 15px 20px 0px rgb(129, 127, 127);
   background-color: rgba(32, 122, 122, 0.466);
+  vertical-align: top;
 }
 
 .displayMushroomers {
@@ -103,7 +104,6 @@
 
 .nickname {
   display: inline-block;
-  max-width: 6rem;
   margin: 1.5rem;
   font-size: 1.2rem;
   color: rgb(236, 232, 230);

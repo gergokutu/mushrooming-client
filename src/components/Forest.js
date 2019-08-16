@@ -29,7 +29,11 @@ class Forest extends React.Component {
       const winner = mushroomers.reduce((winner, mushroomer) => {
         return this.calculatePoints(winner) > this.calculatePoints(mushroomer) ? winner : mushroomer;
       }, 0)
-      return <h3>The winner is <b>{winner.nickname}</b> with number of points: <b>{this.calculatePoints(winner)}</b></h3>
+      return <h3 className='winnerText'>
+              <img className='trophy' src='https://img.pngio.com/trophy-png-51465-png-images-pngio-png-trophy-1024_1024.png' alt='trophy'/>
+              The winner is <b className='winnerName'>{winner.nickname}</b> with number of points: <b>{this.calculatePoints(winner)}</b>
+              <img className='trophy' src='https://img.pngio.com/trophy-png-51465-png-images-pngio-png-trophy-1024_1024.png' alt='trophy'/>
+            </h3>
     }
   }
 
@@ -46,6 +50,16 @@ class Forest extends React.Component {
       })
     }
 
+  }
+
+  displayLocation = (location) => {
+    if (location === 0) {
+      return 'START'
+    } else if (location === 35) {
+      return 'FINISH'
+    } else {
+      return location
+    }
   }
 
   render() {
@@ -72,7 +86,7 @@ class Forest extends React.Component {
         : null
 
       const space = <div key={location} className='space'>
-        <div>{location}</div>
+        <div className='location'>{this.displayLocation(location)}</div>
         <div>{mushroomers.map(mushroomer => <div className='nickname'>{mushroomer.nickname}</div>)}</div>
         <div>{good}</div>
         <div>{bad}</div>

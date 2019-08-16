@@ -4,6 +4,7 @@ import LoginForm from './LoginForm'
 import NewUserForm from './NewUserForm'
 import { loginUser, createUser } from '../actions/users'
 import { Link } from 'react-router-dom'
+import UserError from './UserError';
 
 
 class LoginFormContainer extends Component {
@@ -64,8 +65,6 @@ class LoginFormContainer extends Component {
 
   render () {
     const { login } = this.props
-    console.log('new created?', this.state.new_created)
-
     const content = !login.jwt
       ? <div className='loginFormContainer'>
         <p className='App'>Please, log in or create a new user</p>
@@ -74,6 +73,8 @@ class LoginFormContainer extends Component {
           onChangeLogin={this.onChangeLogin}
           values={this.state.existing}
         />
+        
+        <UserError message={login.message}/>
         {this.state.new_created&&<p className='App'>Now you can log in!</p>}
         <NewUserForm 
           onSubmitNew={this.onSubmitNew}

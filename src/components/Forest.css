@@ -6,16 +6,18 @@
 }
 
 .space{
+  display: inline-block;
+  /* flex-direction: row; */
   margin: 10px;
   font-weight: bold;
   border: 3px rgb(18, 68, 16) solid;
   border-radius: 20%;
   text-align: center;
-  width: 7.5rem;
+  min-width: 7.5rem;
   height: 7.5rem;
-  display: inline-block;
   box-shadow: 15px 15px 20px 0px rgb(129, 127, 127);
   background-color: rgba(32, 122, 122, 0.466);
+  vertical-align: top;
 }
 
 .displayMushroomers {
@@ -92,4 +94,35 @@
 .emptyForest {
   height: 30px;
   margin-bottom: 0px;
+}
+
+.mushrooms {
+  margin: 1rem;
+  height: 3rem;
+  width: auto;
+}
+
+.nickname {
+  display: inline-block;
+  margin: 1.5rem;
+  font-size: 1.5rem;
+  color: rgb(236, 232, 230);
+}
+
+.location {
+  font-size: 1.8rem;
+}
+
+.winnerText {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.trophy {
+  height: 3rem;
+  width: auto;
+}
+
+.winnerName {
+  color: rgb(212, 97, 20);
 }

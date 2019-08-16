@@ -62,21 +62,21 @@ class Forest extends React.Component {
       const good = forest
         .good
         .includes(location)
-        ? 'good'
+        ? <img className='mushrooms' src='https://cdn.pixabay.com/photo/2013/07/13/12/39/mushroom-160043_960_720.png' alt='good'/>
         : null
 
       const bad = forest
         .bad
         .includes(location)
-        ? 'bad'
+        ? <img className='mushrooms' src='https://cdn.pixabay.com/photo/2012/04/01/18/27/mushroom-23893_1280.png' alt='bad' />
         : null
 
-      const space = <span key={location} className='space'>
+      const space = <div key={location} className='space'>
         <div>{location}</div>
-        <div>{mushroomers.map(mushroomer => <div>{mushroomer.nickname}</div>)}</div>
+        <div>{mushroomers.map(mushroomer => <div className='nickname'>{mushroomer.nickname}</div>)}</div>
         <div>{good}</div>
         <div>{bad}</div>
-      </span>
+      </div>
       spaces.push(space)
       location = location + 1
     }

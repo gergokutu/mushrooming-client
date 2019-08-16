@@ -5,8 +5,8 @@ export default function ForestsList(props) {
   const forests = props.forestsList
 
   return (
-    <div>
-      <header>
+    <div className='forestList'>
+      <header className='title'>
           Choose your Forest ;)
       </header>
       <ul>
@@ -16,6 +16,7 @@ export default function ForestsList(props) {
             <Link 
               key={forest.id}
               to={`/forest/${forest.id}`}
+              className='link'
             >
                 <div>{forest.name}</div>
             </Link>
@@ -23,10 +24,11 @@ export default function ForestsList(props) {
         }
       </ul>
       <form className='forestForm' onSubmit={props.onSubmit}>
-        <h4>Make new forest!</h4>
-        <label>Forest name:<input type='text' value={props.value} onChange={props.onChange}></input></label>
-        <button type='submit'>Create</button>
+        <h4 className='forestMake'>Or create your own!</h4>
+        <label className='forestLabel'>Forest name:<input type='text' className='forestInput' value={props.value} onChange={props.onChange}></input></label>
+        <button type='submit' className='button'>Create</button>
       </form>
+      <img className='image' src='https://biathlon-production.s3.wasabisys.com/images/event/image/71/mush_logo.jpg' alt='mushrooms'/>
     </div>
   )
 }

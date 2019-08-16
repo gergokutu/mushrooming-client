@@ -28,7 +28,7 @@ export default function ForestsList(props) {
         <label className='forestLabel'>Forest name:<input type='text' className='forestInput' value={props.value} onChange={props.onChange}></input></label>
         <button type='submit' className='button'>Create</button>
       </form>
-      <img className='image' src='https://biathlon-production.s3.wasabisys.com/images/event/image/71/mush_logo.jpg' />
+      <img className='image' src='https://biathlon-production.s3.wasabisys.com/images/event/image/71/mush_logo.jpg' alt='mushrooms'/>
     </div>
   )
 }

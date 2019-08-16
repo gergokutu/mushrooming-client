@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Forest from './Forest'
 import { baseUrl } from '../constants'
 import * as request from 'superagent'
-import { async } from 'q';
 
 
 class ForestContainer extends Component {
@@ -19,7 +18,7 @@ class ForestContainer extends Component {
     const forest = this.getForest()
     const mushroomer = forest.mushroomers.find(mushroomer => mushroomer.userId === userId)
     
-    await request
+    mushroomer.id && await request
       .put(`${baseUrl}/roll/${mushroomer.id}`)
   }
 

@@ -75,7 +75,7 @@ class LoginFormContainer extends Component {
       </div>
       : <div className='loggedIn'>
           <h3>Almost there :)</h3>
-          <img src='https://i.dlpng.com/static/png/356841_preview.png' />
+          <img src='https://i.dlpng.com/static/png/356841_preview.png' alt='mushroom'/>
           <p>Click on the link below!!!</p>
           <Link to='/forest' className='link'>Forests</Link>
         </div>
@@ -84,8 +84,8 @@ class LoginFormContainer extends Component {
       <h1 className='App'>Enter to Mushroom Land!</h1>
       {content}
       <div className='imageLine'>
-        <img className='image' src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' />
-        <img className='image' src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' />
+        <img className='image' src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' alt='mushrooms'/>
+        <img className='image' src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' alt='mushrooms'/>
       </div>
     </div>  
   }

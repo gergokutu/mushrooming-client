@@ -8,14 +8,14 @@
 .space{
   margin: 10px;
   font-weight: bold;
-  border: 3px rgb(25, 139, 21) solid;
+  border: 3px rgb(18, 68, 16) solid;
   border-radius: 20%;
   text-align: center;
   width: 7.5rem;
   height: 7.5rem;
   display: inline-block;
   box-shadow: 15px 15px 20px 0px rgb(129, 127, 127);
-  background-color: rgba(16, 71, 71, 0.246);
+  background-color: rgba(32, 122, 122, 0.466);
 }
 
 .displayMushroomers {

@@ -16,7 +16,7 @@ class Forest extends React.Component {
 
   showRollButton=() =>{
     if(this.props.forest.status==='started'){
-      return <div><button className='dieButton, button' onClick={this.props.onClickRoll}>Roll a die</button></div>
+      return <div><button className='dieButton, button' onClick={this.props.onClickRoll}>Roll a dice</button></div>
     }
   }
   calculatePoints = (mushroomer) =>{

@@ -47,7 +47,7 @@ function LoginForm (props) {
   return (
     <form onSubmit={onSubmitLogin}>
     <StyledLogin >
-      <h2>Let's Mushrooming!</h2>
+      <h2>Let's Mushroom!</h2>
 
       
         <StyledInput 

@@ -3,7 +3,7 @@ import { baseUrl } from '../constants'
 
 export const JWT = 'JWT'
 
-function jwt (payload) {
+function jwt(payload) {
   return {
     type: JWT,
     payload
@@ -17,8 +17,7 @@ export const loginUser = (email, password) => dispatch => {
     .then(response => {
       const action = jwt(response.body)
       dispatch(action)
-    }
-  )
+    })
 }
 
 export const createUser = (user) => dispatch => {
@@ -30,4 +29,3 @@ export const createUser = (user) => dispatch => {
     })
     .catch(console.error)
 }
-

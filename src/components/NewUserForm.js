@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from "styled-components"
 
-
 const StyledLogin = styled.div`
   display: flex;
   align-items: center;
@@ -46,41 +45,43 @@ function NewUserForm (props) {
 
   return (
     <form onSubmit={onSubmitNew}>
-    <StyledLogin>
-      <h2>Never Played?</h2>
+      <StyledLogin>
+        <h2>Never Played?</h2>
 
-      <StyledInput 
-      type="text" 
-      name='email'
-      value={email}
-      onChange={onChangeNew} 
-      placeholder="email" 
-      />
-      <StyledInput
-       type="password"
-       name='password'
-       value={password}
-       onChange={onChangeNew} 
-       placeholder="password" 
-       />
-      <StyledInput 
-      type="text"
-      name="nickname" 
-      value={nickname}
-      onChange={onChangeNew}  
-      placeholder="nickname" 
-      />
-      <StyledInput 
-      type="text"
-      name='avatarUrl'
-      value={avatarUrl}
-      onChange={onChangeNew} 
-      placeholder="avatarUrl" 
-      />
-      
-      <button type='submit'>Create User</button>
-      
-    </StyledLogin>
+        <StyledInput 
+        type="text" 
+        name='email'
+        value={email}
+        onChange={onChangeNew} 
+        placeholder="email" 
+        />
+
+        <StyledInput
+        type="password"
+        name='password'
+        value={password}
+        onChange={onChangeNew} 
+        placeholder="password" 
+        />
+
+        <StyledInput 
+        type="text"
+        name="nickname" 
+        value={nickname}
+        onChange={onChangeNew}  
+        placeholder="nickname" 
+        />
+
+        <StyledInput 
+        type="text"
+        name='avatarUrl'
+        value={avatarUrl}
+        onChange={onChangeNew} 
+        placeholder="avatarUrl" 
+        />
+        
+        <button type='submit'>Create User</button>
+      </StyledLogin>
     </form>
   )
 }

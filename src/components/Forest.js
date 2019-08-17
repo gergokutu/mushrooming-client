@@ -3,43 +3,64 @@ import './Forest.css'
 import { Link } from 'react-router-dom'
 class Forest extends React.Component {
 
-  showStartButton =() =>{
-    if(this.props.forest.status==='joining'){
-      return <div><button className='startGame, button' onClick={this.props.onClickStart}>Start Game</button></div>
-  }}
-
-  showJoinButton =() =>{
-    if(this.props.forest.status==='joining'){
-      return <div><button className='joinGame, button' onClick={this.props.onClickJoin}>Join</button></div>
+  showStartButton = () => {
+    if (this.props.forest.status === 'joining') {
+      return <div>
+        <button className='startGame, button' onClick={this.props.onClickStart}>Start Game</button>
+      </div>
     }
   }
 
-  showRollButton=() =>{
-    if(this.props.forest.status==='started'){
-      return <div><button className='dieButton, button' onClick={this.props.onClickRoll}>Roll a dice</button></div>
+  showJoinButton = () => {
+    if (this.props.forest.status === 'joining') {
+      return <div>
+        <button className='joinGame, button' onClick={this.props.onClickJoin}>Join</button>
+      </div>
     }
   }
-  calculatePoints = (mushroomer) =>{
-    return mushroomer.good-mushroomer.bad
 
+  showRollButton = () => {
+    if (this.props.forest.status === 'started') {
+      return <div>
+        <button className='dieButton, button' onClick={this.props.onClickRoll}>Roll a dice</button>
+      </div>
+    }
   }
-  showWinner=() =>{
-    if(this.props.forest.status==='finished'){
+
+  calculatePoints = (mushroomer) => {
+    return mushroomer.good - mushroomer.bad
+  }
+
+  showWinner = () => {
+    if (this.props.forest.status === 'finished') {
       const mushroomers = this.props.forest.mushroomers
-      const winner = mushroomers.reduce((winner, mushroomer) => {
-        return this.calculatePoints(winner) > this.calculatePoints(mushroomer) ? winner : mushroomer;
-      }, 0)
+
+      const winner = mushroomers.reduce(
+        (winner, mushroomer) => {
+          return this.calculatePoints(winner) > this.calculatePoints(mushroomer)
+            ? winner
+            : mushroomer
+        }, 0)
+
       return <h3 className='winnerText'>
-              <img className='trophy' src='https://img.pngio.com/trophy-png-51465-png-images-pngio-png-trophy-1024_1024.png' alt='trophy'/>
-              The winner is <b className='winnerName'>{winner.nickname}</b> with number of points: <b>{this.calculatePoints(winner)}</b>
-              <img className='trophy' src='https://img.pngio.com/trophy-png-51465-png-images-pngio-png-trophy-1024_1024.png' alt='trophy'/>
-            </h3>
+        <img
+          className='trophy'
+          src='https://img.pngio.com/trophy-png-51465-png-images-pngio-png-trophy-1024_1024.png' alt='trophy'
+        />
+        The winner is <b className='winnerName'>{winner.nickname}</b> with number of points: <b>{this.calculatePoints(winner)}</b>
+        <img
+          className='trophy'
+          src='https://img.pngio.com/trophy-png-51465-png-images-pngio-png-trophy-1024_1024.png'
+          alt='trophy'
+        />
+      </h3>
     }
   }
 
-  showMushroomers=() =>{
+  showMushroomers = () => {
     const mushroomers = this.props.forest.mushroomers
-    if(mushroomers){
+
+    if (mushroomers) {
       return mushroomers.map(mushroomer => {
         return <div key={mushroomer.id} className='displayMushroomers'>
           <p className='mushroomerInfo'>nickname: {mushroomer.nickname}</p>
@@ -49,7 +70,6 @@ class Forest extends React.Component {
         </div>
       })
     }
-
   }
 
   displayLocation = (location) => {
@@ -63,7 +83,6 @@ class Forest extends React.Component {
   }
 
   render() {
-    console.log('Forest:', this.props)
     const { forest } = this.props
     let location = 0
     const spaces = []
@@ -76,7 +95,7 @@ class Forest extends React.Component {
       const good = forest
         .good
         .includes(location)
-        ? <img className='mushrooms' src='https://cdn.pixabay.com/photo/2013/07/13/12/39/mushroom-160043_960_720.png' alt='good'/>
+        ? <img className='mushrooms' src='https://cdn.pixabay.com/photo/2013/07/13/12/39/mushroom-160043_960_720.png' alt='good' />
         : null
 
       const bad = forest
@@ -91,13 +110,20 @@ class Forest extends React.Component {
         <div>{good}</div>
         <div>{bad}</div>
       </div>
+
       spaces.push(space)
       location = location + 1
     }
 
     return <div className='forest'>
       <h3 className='title'>{forest.name}</h3>
-      <div><Link to={`/forest`}><button className='ButtonBack, button' onClick={this.props.onClickBack}>Go Back</button></Link></div>
+
+      <div>
+        <Link to={`/forest`}>
+          <button className='ButtonBack, button' onClick={this.props.onClickBack}>Go Back</button>
+        </Link>
+      </div>
+      
       {this.showJoinButton()}
       {this.showStartButton()}
       {this.showWinner()}

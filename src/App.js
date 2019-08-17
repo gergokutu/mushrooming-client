@@ -26,7 +26,6 @@ class App extends React.Component {
   
   render () {
     return (
-      
       <div>
         <Route exact path='/' component={LoginFormContainer} />
         <Route exact path='/forest' component={ForestsListContainer} />

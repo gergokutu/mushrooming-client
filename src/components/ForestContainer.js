@@ -6,6 +6,7 @@ import * as request from 'superagent'
 
 
 class ForestContainer extends Component {
+
   getForest = () => {
     const id = this.props.match.params.forestId
     const { forests } = this.props
@@ -18,8 +19,7 @@ class ForestContainer extends Component {
     const forest = this.getForest()
     const mushroomer = forest.mushroomers.find(mushroomer => mushroomer.userId === userId)
 
-    mushroomer.id && await request
-      .put(`${baseUrl}/roll/${mushroomer.id}`)
+    mushroomer.id && await request.put(`${baseUrl}/roll/${mushroomer.id}`)
   }
 
   onClickStart = async (event) => {
@@ -32,21 +32,24 @@ class ForestContainer extends Component {
     event.preventDefault()
     const { forestId } = this.props.match.params
     const userId = this.props.login.userId
-    await request.post(`${baseUrl}/join/${forestId}`)
+    await request
+      .post(`${baseUrl}/join/${forestId}`)
       .send({ id: userId })
-
   }
 
   render() {
     const rightForest = this.getForest()
+
     const forest = rightForest
-      ? <Forest forest={rightForest}
+      ? <Forest
+        forest={rightForest}
         onClickRoll={this.onClickRoll}
         onClickStart={this.onClickStart}
         onClickBack={this.onClickBack}
         onClickJoin={this.onClickJoin}
       />
       : "loading..."
+
     return <div>
       {forest}
     </div>
@@ -60,8 +63,4 @@ function mapStateToProps(state) {
   }
 }
 
-const mapDispatchToProps = {
-  // forestId: forestId
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ForestContainer)
+export default connect(mapStateToProps)(ForestContainer)

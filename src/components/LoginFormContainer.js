@@ -6,7 +6,6 @@ import { loginUser, createUser } from '../actions/users'
 import { Link } from 'react-router-dom'
 import UserError from './UserError';
 
-
 class LoginFormContainer extends Component {
   state = { 
     existing: {
@@ -30,7 +29,6 @@ class LoginFormContainer extends Component {
   onChangeLogin = (event) => {
     const { name, value } = event.target
 
-
     const existing = this.state.existing
     existing[name] = value
 
@@ -51,7 +49,6 @@ class LoginFormContainer extends Component {
       },
       new_created: true
     })
-
   }
 
   onChangeNew = (event) => {
@@ -73,9 +70,10 @@ class LoginFormContainer extends Component {
           onChangeLogin={this.onChangeLogin}
           values={this.state.existing}
         />
-        
+  
         <UserError message={login.message}/>
-        {this.state.new_created&&<p className='App'>Now you can log in!</p>}
+        {this.state.new_created && <p className='App'>Now you can log in!</p>}
+
         <NewUserForm 
           onSubmitNew={this.onSubmitNew}
           onChangeNew={this.onChangeNew}
@@ -93,8 +91,16 @@ class LoginFormContainer extends Component {
       <h1 className='App'>Enter to Mushroom Land!</h1>
       {content}
       <div className='imageLine'>
-        <img className='image' src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' alt='mushrooms'/>
-        <img className='image' src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' alt='mushrooms'/>
+        <img 
+          className='image' 
+          src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' 
+          alt='mushrooms'
+        />
+        <img 
+          className='image' 
+          src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' 
+          alt='mushrooms'
+        />
       </div>
     </div>  
   }
@@ -110,6 +116,5 @@ const mapDispatchToProps = {
   loginUser,
   createUser
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer)

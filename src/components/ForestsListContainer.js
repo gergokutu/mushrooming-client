@@ -7,18 +7,11 @@ import { baseUrl } from '../constants';
 
 class ForestsListContainer extends Component {
   state={value: ''}
-  // onClick= async(event) =>{
-  //   const userId=this.props.login.userId
-  //   console.log('this.props', this.props)
-  //   const forestId=this.props.params.id
-  //   await request.post(`${baseUrl}/join/${forestId}`)
-  //   .send({id: userId})
-
-  // }
 
   onChange=(event) =>{
     this.setState({value: event.target.value})  
   }
+  
   onSubmit=async(event) => {
     event.preventDefault()
     await request.post(`${baseUrl}/forest`)

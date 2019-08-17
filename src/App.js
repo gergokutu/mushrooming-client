@@ -15,7 +15,6 @@ import { connect } from 'react-redux'
 class App extends React.Component {
   source = new EventSource(`${baseUrl}/stream`)
   
-
   componentDidMount () {
     this.source.onmessage = (event) => {
       const { data } = event

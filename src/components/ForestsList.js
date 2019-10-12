@@ -32,25 +32,25 @@ export default function ForestsList(props) {
         <h4 className='forestMake'>Or create your own!</h4>
 
         <label className='forestLabel'>Forest name:
-          <input 
-            type='text' 
-            className='forestInput' 
-            value={props.value} 
+          <input
+            type='text'
+            className='forestInput'
+            value={props.value}
             onChange={props.onChange}
           />
         </label>
 
         <button type='submit' className='button'>Create</button>
-      </form>
-      
-      <Link to='/'>
-        <button type='submit' className='button'>Go back to Login</button>
-      </Link>
 
-      <img 
-        className='image' 
-        src='https://biathlon-production.s3.wasabisys.com/images/event/image/71/mush_logo.jpg' 
-        alt='mushrooms' 
+        <Link to='/'>
+          <button type='submit' className='button'>Go back to Login</button>
+        </Link>
+      </form>
+
+      <img
+        className='image'
+        src='https://biathlon-production.s3.wasabisys.com/images/event/image/71/mush_logo.jpg'
+        alt='mushrooms'
       />
     </div>
   )

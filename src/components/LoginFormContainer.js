@@ -82,7 +82,7 @@ class LoginFormContainer extends Component {
       </div>
       : <div className='loggedIn'>
           <h3>Almost there :)</h3>
-          <img src='https://i.dlpng.com/static/png/356841_preview.png' alt='mushroom'/>
+          <img src='https://www.pngrepo.com/download/212046/mushroom.png' alt='mushroom'/>
           <p>Click on the link below!!!</p>
           <Link to='/forest' className='link'>Forests</Link>
         </div>

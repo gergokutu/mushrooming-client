@@ -42,6 +42,10 @@ export default function ForestsList(props) {
 
         <button type='submit' className='button'>Create</button>
       </form>
+      
+      <Link to='/'>
+        <button type='submit' className='button'>Go back to Login</button>
+      </Link>
 
       <img 
         className='image' 

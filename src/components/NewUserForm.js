@@ -6,7 +6,7 @@ const StyledLogin = styled.div`
   align-items: center;
   flex-flow: column;
   width: 200px;
-  height: 290px;
+  height: 250px;
   margin: 50px auto 50px;
   border: 2px solid #000;
   border-radius: 20px;
@@ -72,13 +72,13 @@ function NewUserForm (props) {
         placeholder="nickname" 
         />
 
-        <StyledInput 
+        {/* <StyledInput 
         type="text"
         name='avatarUrl'
         value={avatarUrl}
         onChange={onChangeNew} 
         placeholder="avatarUrl" 
-        />
+        /> */}
         
         <button type='submit'>Create User</button>
       </StyledLogin>

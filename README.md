@@ -1,3 +1,18 @@
+# :mushroom: Mushrooming App :mushroom:
+With this app you can play with the online multiplayer mushrooming game.
+
+### Technologies used 
+* React
+* Redux
+* CSS
+
+### How to play
+You can create different forests (lobbies) where you can compete with your friends. At least two joined mushroomers (player) necessary to play the game. When you have 2 joined mushroomers, you can click on the start button and the 'roll the dice' button will appear. You can also see the scoreboards of the mushroomers below the board. The most left player is the following, only they can click on the 'roll a dice' button.
+
+## :point_right: [checkout the deployed version here](https://mushrooming-client.herokuapp.com) :point_left:
+
+![](mushrooming.gif)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

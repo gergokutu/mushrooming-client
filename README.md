@@ -6,8 +6,12 @@ With this app you can play with the online multiplayer mushrooming game.
 * Redux
 * CSS
 
-### How to play
-You can create different forests (lobbies) where you can compete with your friends. At least two joined mushroomers (player) necessary to play the game. When you have 2 joined mushroomers, you can click on the start button and the 'roll the dice' button will appear. You can also see the scoreboards of the mushroomers below the board. The most left player is the following, only they can click on the 'roll a dice' button.
+### How to play :game-die:
+You can create different forests (lobbies) where you can compete with your friends. At least two joined mushroomers (players) necessary to play the game. When you have 2 joined mushroomers, you can click on the start button and the 'roll the dice' button will appear. You can also see the scoreboards of the mushroomers below the board. The most left player has the next turn, only they can click on the 'roll a dice' button.
+
+The brown mushrooms give you 1 point, but be careful because each of the red ones is worth of -1 point!
+
+The winner :trophy: :trophy: :trophy: is how has the most points when one of the mushroomers step on the finish field.
 
 ## :point_right: [checkout the deployed version here](https://mushrooming-client.herokuapp.com) :point_left:
 

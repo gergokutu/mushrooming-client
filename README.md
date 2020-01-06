@@ -17,6 +17,9 @@ The winner :trophy: :trophy: :trophy: is who has the most points when one of the
 
 ![](mushrooming.gif)
 
+### Back-end
+You can find the server side repository of the application [here](https://github.com/gergokutu/mushrooming-server).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

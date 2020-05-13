@@ -4,7 +4,7 @@ import LoginForm from './LoginForm'
 import NewUserForm from './NewUserForm'
 import { loginUser, createUser } from '../actions/users'
 import { Link } from 'react-router-dom'
-
+import UserError from './UserError';
 
 class LoginFormContainer extends Component {
   state = { 
@@ -17,19 +17,17 @@ class LoginFormContainer extends Component {
       password: '',
       nickname: '',
       avatarUrl: ''
-    } 
+    },
+    new_created: false 
   }
 
   onSubmitLogin = (event) => {
-    console.log('onSubmit!:')
     event.preventDefault()
     this.props.loginUser( this.state.existing.email, this.state.existing.password)
   }
 
   onChangeLogin = (event) => {
     const { name, value } = event.target
-
-    console.log("targetTest", name, value)
 
     const existing = this.state.existing
     existing[name] = value
@@ -42,6 +40,15 @@ class LoginFormContainer extends Component {
   onSubmitNew = (event) => {
     event.preventDefault()
     this.props.createUser( this.state.new )
+    this.setState({
+      new: {
+        email: '',
+        password: '',
+        nickname: '',
+        avatarUrl: ''
+      },
+      new_created: true
+    })
   }
 
   onChangeNew = (event) => {
@@ -54,19 +61,19 @@ class LoginFormContainer extends Component {
   }
 
   render () {
-    console.log("render test")
     const { login } = this.props
-
-    console.log('login test:', login)
-
     const content = !login.jwt
       ? <div className='loginFormContainer'>
-        <p className='App'>Please, login or create a new user</p>
+        <p className='App'>Please, log in or create a new user</p>
         <LoginForm 
           onSubmitLogin={this.onSubmitLogin}
           onChangeLogin={this.onChangeLogin}
           values={this.state.existing}
         />
+  
+        <UserError message={login.message}/>
+        {this.state.new_created && <p className='App'>Now you can log in!</p>}
+
         <NewUserForm 
           onSubmitNew={this.onSubmitNew}
           onChangeNew={this.onChangeNew}
@@ -75,7 +82,7 @@ class LoginFormContainer extends Component {
       </div>
       : <div className='loggedIn'>
           <h3>Almost there :)</h3>
-          <img src='https://i.dlpng.com/static/png/356841_preview.png' alt='mushroom'/>
+          <img src='https://www.pngrepo.com/download/212046/mushroom.png' alt='mushroom'/>
           <p>Click on the link below!!!</p>
           <Link to='/forest' className='link'>Forests</Link>
         </div>
@@ -84,8 +91,16 @@ class LoginFormContainer extends Component {
       <h1 className='App'>Enter to Mushroom Land!</h1>
       {content}
       <div className='imageLine'>
-        <img className='image' src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' alt='mushrooms'/>
-        <img className='image' src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' alt='mushrooms'/>
+        <img 
+          className='image' 
+          src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' 
+          alt='mushrooms'
+        />
+        <img 
+          className='image' 
+          src='http://static1.squarespace.com/static/580c7d2b6a49636956c284ae/580cb1b1893fc08940963d0a/580cb8fc8419c2606f6b7409/1477745594188/mushroom2.png?format=1500w' 
+          alt='mushrooms'
+        />
       </div>
     </div>  
   }
@@ -102,5 +117,4 @@ const mapDispatchToProps = {
   createUser
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer)
 export default connect(mapStateToProps, mapDispatchToProps)(LoginFormContainer)

@@ -15,20 +15,16 @@ import { connect } from 'react-redux'
 class App extends React.Component {
   source = new EventSource(`${baseUrl}/stream`)
   
-
   componentDidMount () {
     this.source.onmessage = (event) => {
       const { data } = event
       const forests = JSON.parse(data)
-      console.log('forests',forests)
-      console.log('App this.props:', this.props)
       this.props.allForests(forests)
     }
   }
   
   render () {
     return (
-      
       <div>
         <Route exact path='/' component={LoginFormContainer} />
         <Route exact path='/forest' component={ForestsListContainer} />
@@ -39,7 +35,6 @@ class App extends React.Component {
 }
 
 function mapStateToProps (state) {
-  console.log('app state.forests', state)
   return {
     forests: state.forestsList,
     user: state.user

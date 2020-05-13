@@ -46,31 +46,29 @@ function LoginForm (props) {
 
   return (
     <form onSubmit={onSubmitLogin}>
-    <StyledLogin >
-      <h2>Let's Mushroom!</h2>
+      <StyledLogin >
+        <h2>Let's Mushroom!</h2>
 
-      
-        <StyledInput 
-          correct={true} 
-          type="text"
-          name='email'
-          value={email}
-          onChange={onChangeLogin} 
-          placeholder="email" 
-        />
-        <StyledInput 
-          correct={false} 
-          type="password"
-          name='password'
-          value={password}
-          onChange={onChangeLogin} 
-          placeholder="password" 
-        />
-        
-          <button type='submit'>Login</button>
-        
-      
-    </StyledLogin>
+          <StyledInput 
+            correct={true} 
+            type="text"
+            name='email'
+            value={email}
+            onChange={onChangeLogin} 
+            placeholder="email" 
+          />
+
+          <StyledInput 
+            correct={false} 
+            type="password"
+            name='password'
+            value={password}
+            onChange={onChangeLogin} 
+            placeholder="password" 
+          />
+          
+          <button type='submit'>Login</button> 
+      </StyledLogin>
     </form>
   )
 }
